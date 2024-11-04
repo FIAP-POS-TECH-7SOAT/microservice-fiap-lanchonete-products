@@ -1,0 +1,16 @@
+
+services:
+  db:
+    image: postgres:latest
+    container_name: microservice-fiap-lanchonete-product
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: microservice-fiap-lanchonete-product
+    ports:
+      - "5432:5432"
+    volumes:
+      - microservice-fiap-lanchonete-product_data:/var/lib/postgresql/data
+
+volumes:
+  microservice-fiap-lanchonete-product_data:
