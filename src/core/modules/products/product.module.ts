@@ -4,7 +4,7 @@ import { CreateProductUseCase } from './application/use-case/create-product.use-
 import { FindProductByIdUseCase } from './application/use-case/find-product-by-id.use-case';
 import { UpdateProductByIdUseCase } from './application/use-case/update-product-by-id.use-case';
 
-import { ListAllProductsByFiltersUseCase } from './application/use-case/list-all-products-by-filters.use-case';
+import { ListAllProductsUseCase } from './application/use-case/list-all-products.use-case';
 
 @Module({
   imports: [],
@@ -13,13 +13,13 @@ import { ListAllProductsByFiltersUseCase } from './application/use-case/list-all
     CreateProductUseCase,
     FindProductByIdUseCase,
     UpdateProductByIdUseCase,
-    ListAllProductsByFiltersUseCase,
+    ListAllProductsUseCase,
   ],
   exports: [
     CreateProductUseCase,
     FindProductByIdUseCase,
     UpdateProductByIdUseCase,
-    ListAllProductsByFiltersUseCase,
+    ListAllProductsUseCase,
   ],
 })
 export class ProductModule {}
