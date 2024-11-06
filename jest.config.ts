@@ -5,7 +5,7 @@ export default {
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
-  collectCoverage: true,
+  // collectCoverage: true,
   coverageReporters: ['lcov', 'text'],
   collectCoverageFrom: ['src/**/*.{js,ts}'],
   coveragePathIgnorePatterns: [
@@ -20,5 +20,6 @@ export default {
   moduleNameMapper: {
     '^@core/(.*)$': '<rootDir>/src/core/$1',
     '^@adapters/(.*)$': '<rootDir>/src/adapters/$1',
+    '^@test/(.*)$': '<rootDir>/test/$1',
   },
 };

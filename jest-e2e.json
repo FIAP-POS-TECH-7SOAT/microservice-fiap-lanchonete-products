@@ -12,7 +12,8 @@
   "testEnvironment": "node",
   "moduleNameMapper": {
     "^@core/(.*)$": "<rootDir>/src/core/$1",
-    "^@adapters/(.*)$": "<rootDir>/src/adapters/$1"
+    "^@adapters/(.*)$": "<rootDir>/src/adapters/$1",
+    "^@test/(.*)$": "<rootDir>/test/$1"
   },
   "setupFilesAfterEnv": ["<rootDir>/test/integrations/configs/jest.setup.ts"]
 }

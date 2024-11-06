@@ -30,7 +30,7 @@ import { UpdateProductByIdUseCase } from '@core/modules/products/application/use
 import { FindProductByIdUseCase } from '@core/modules/products/application/use-case/find-product-by-id.use-case';
 
 import { ResourceNotFoundError } from '@core/modules/products/application/errors/resource-not-found-error';
-import { ListAllProductsByFiltersUseCase } from '@core/modules/products/application/use-case/list-all-products-by-filters.use-case';
+import { ListAllProductsUseCase } from '@core/modules/products/application/use-case/list-all-products.use-case';
 import { ProductMapping } from '../mapping/product-mapping';
 
 @Controller('/products')
@@ -40,7 +40,7 @@ import { ProductMapping } from '../mapping/product-mapping';
 export class ProductController {
   constructor(
     private readonly createProductUseCase: CreateProductUseCase,
-    private readonly listAllProductsByFiltersUseCase: ListAllProductsByFiltersUseCase,
+    private readonly ListAllProductsUseCase: ListAllProductsUseCase,
     private readonly updateProductByIdUseCase: UpdateProductByIdUseCase,
     private readonly findProductByIdUseCase: FindProductByIdUseCase,
   ) {}
@@ -99,11 +99,7 @@ export class ProductController {
   @HttpCode(200)
   @UsePipes(new ZodValidationPipe(filtersProductSchema))
   async listAllProducts() {
-    const result = await this.listAllProductsByFiltersUseCase.execute({
-      filters: {
-        status: [],
-      },
-    });
+    const result = await this.ListAllProductsUseCase.execute();
     if (result.isLeft()) {
       throw new Error('');
     }

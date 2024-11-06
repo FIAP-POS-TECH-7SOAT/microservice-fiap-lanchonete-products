@@ -4,7 +4,6 @@ import { PrismaService } from '../prisma.service';
 import { Injectable } from '@nestjs/common';
 import { Product } from '@core/modules/products/entities/product';
 import { ProductMapping } from './mapping/product-mapping';
-import { GetAllFiltersDTO } from '@core/modules/products/application/ports/repositories/dtos/product-dto';
 
 @Injectable()
 export class PrismaProductRepository implements ProductRepository {
@@ -22,9 +21,7 @@ export class PrismaProductRepository implements ProductRepository {
     return ProductMapping.toDomain(product);
   }
 
-  async getAll({ filters }: GetAllFiltersDTO): Promise<Product[]> {
-    console.log('Flieter', filters);
-
+  async getAll(): Promise<Product[]> {
     const product = await this.prisma.product.findMany({
       orderBy: {
         created_at: 'asc',
