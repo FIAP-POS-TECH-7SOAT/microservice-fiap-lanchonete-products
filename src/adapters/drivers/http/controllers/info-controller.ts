@@ -17,6 +17,7 @@ export class InfoController {
   async info() {
     return {
       version: pkg.version,
+      service: pkg.name,
     };
   }
 }
